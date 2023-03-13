@@ -12,7 +12,7 @@ def generateListNode(data: list) -> ListNode:
 
 
 def generateTree(datas: list):
-    def insert(index) -> TreeNode:
+    def insert(index):
         if datas[index] is not None:
             if (index + 1) * 2 < len(datas):
                 return TreeNode(datas[index], insert((index + 1) * 2 - 1), insert((index + 1) * 2))
