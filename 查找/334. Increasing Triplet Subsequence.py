@@ -13,7 +13,7 @@ class Solution:
         return max(res) >= 3
 
     def increasingTriplet(self, nums: List[int]) -> bool:
-        INF = pow(2, 31)
+        INF = pow(2, 31) - 1
         triple = [INF] * 3
         len = 0
 
