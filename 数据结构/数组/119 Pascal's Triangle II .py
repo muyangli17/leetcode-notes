@@ -21,3 +21,8 @@ class Solution:
         for i in range(rowIndex + 1):
             res.append(combination(rowIndex, i))
         return res
+
+
+rowIndex = 3
+solution = Solution()
+print(solution.getRow(rowIndex))

@@ -15,17 +15,28 @@ class Solution:
         if head is None:
             return None
 
-        prev = head
-        p = prev.next
+        placeHolder = ListNode(next=head)
+
+        prev = placeHolder
+        p = head
+        q = p.next
 
         while p is not None:
-            if prev.val == p.val:
-                prev.next = p.next
+            containDuplicate = False
+            while q is not None and q.val == p.val:
+                containDuplicate = True
+                q = q.next
+
+            if containDuplicate:
+                prev.next = q
+                p = q
             else:
                 prev = prev.next
-            p = p.next
+                p = p.next
+            if q is not None:
+                q = q.next
 
-        return head
+        return placeHolder.next
 
 
 values = [1, 1, 2, 3, 3]
