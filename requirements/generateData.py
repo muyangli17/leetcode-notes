@@ -11,16 +11,28 @@ def generateListNode(data: list) -> ListNode:
     return p
 
 
-def generateTree(datas: list):
-    def insert(index):
-        if datas[index] is not None:
-            if (index + 1) * 2 < len(datas):
-                return TreeNode(datas[index], insert((index + 1) * 2 - 1), insert((index + 1) * 2))
-            elif (index + 1) * 2 - 1 < len(datas):
-                return TreeNode(datas[index], insert((index + 1) * 2 - 1), None)
-            else:
-                return TreeNode(datas[index], None, None)
-        else:
-            return None
+def generateTree(datas: list) -> TreeNode:
+    if len(datas) == 0:
+        return TreeNode(None, None, None)
 
-    return insert(0)
+    index = 0
+    root = TreeNode(datas[index], None, None)
+    index += 1
+    nodeQueue = [root]
+
+    while len(nodeQueue) > 0 and index < len(datas):
+        latestNode = nodeQueue.pop(0)
+
+        if datas[index] is not None:
+            leftChild = TreeNode(datas[index], None, None)
+            latestNode.left = leftChild
+            nodeQueue.append(leftChild)
+        index += 1
+
+        if datas[index] is not None:
+            rightChild = TreeNode(datas[index], None, None)
+            latestNode.right = rightChild
+            nodeQueue.append(rightChild)
+        index += 1
+
+    return root
