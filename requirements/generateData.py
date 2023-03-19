@@ -11,9 +11,9 @@ def generateListNode(data: list) -> ListNode:
     return p
 
 
-def generateTree(datas: list) -> TreeNode:
+def generateTree(datas: list):
     if len(datas) == 0:
-        return TreeNode(None, None, None)
+        return None
 
     index = 0
     root = TreeNode(datas[index], None, None)
