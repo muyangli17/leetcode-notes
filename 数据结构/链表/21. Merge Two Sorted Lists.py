@@ -6,6 +6,8 @@
 from typing import Optional
 
 from requirements.ListNode import ListNode
+from requirements.generateData import generateNodeList
+from requirements.printData import printNodeList
 
 
 class Solution:
@@ -50,24 +52,10 @@ value1 = [1, 2, 4]
 value2 = [1, 3, 4]
 n = 2
 
-p = ListNode(value1[-1], None)
-for index in range(len(value1) - 2, -1, -1):
-    q = ListNode(val=value1[index], next=p)
-    p = q
-
-list1 = p
-
-p = ListNode(value2[-1], None)
-for index in range(len(value2) - 2, -1, -1):
-    q = ListNode(val=value2[index], next=p)
-    p = q
-
-list2 = p
+list1 = generateNodeList(value1)
+list2 = generateNodeList(value2)
 
 solution = Solution()
 head = solution.mergeTwoLists(list1=list1, list2=list2)
 
-p = head
-while p is not None:
-    print(p.val)
-    p = p.next
+printNodeList(head)

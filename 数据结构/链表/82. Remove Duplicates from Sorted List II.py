@@ -5,9 +5,9 @@
 #         self.next = next
 from typing import Optional
 
-from requirements import generateData
-from requirements import printData
 from requirements.ListNode import ListNode
+from requirements.generateData import generateNodeList
+from requirements.printData import printNodeList
 
 
 class Solution:
@@ -40,9 +40,9 @@ class Solution:
 
 
 values = [1, 1, 2, 3, 3]
-head = generateData.generateListNode(values)
+head = generateNodeList(values)
 
 solution = Solution()
 head = solution.deleteDuplicates(head=head)
 
-printData.printNodeList(head)
+printNodeList(head)
