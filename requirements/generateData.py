@@ -2,7 +2,7 @@ from requirements.ListNode import ListNode
 from requirements.TreeNode import TreeNode
 
 
-def generateListNode(data: list) -> ListNode:
+def generateNodeList(data: list) -> ListNode:
     p = ListNode(data[-1], None)
     for index in range(len(data) - 2, -1, -1):
         q = ListNode(val=data[index], next=p)
