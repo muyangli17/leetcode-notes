@@ -1,5 +1,5 @@
 class Solution:
-    def addStrings(self, num1: str, num2: str) -> str:
+    def addStrings1(self, num1: str, num2: str) -> str:
         # ensure num1 is longer
         if len(num1) < len(num2):
             (num1, num2) = (num2, num1)
@@ -37,8 +37,36 @@ class Solution:
 
         return res
 
+    def addStrings(self, num1: str, num2: str) -> str:
+        # ensure num1 is longer
+        if len(num1) < len(num2):
+            num1 = '0' * (len(num2) - len(num1)) + num1
+        else:
+            num2 = '0' * (len(num1) - len(num2)) + num2
 
-num1 = "923"
-num2 = "111"
+        listForm = []
+
+        for i in range(- 1, -len(num1) - 1, -1):
+            listForm.append(int(num1[i]) + int(num2[i]))
+
+        up = False
+
+        for i in range(len(listForm)):
+            listForm[i] += 1 * up
+            up = listForm[i] >= 10
+            listForm[i] %= 10
+
+        if up:
+            listForm.append(1)
+
+        res = ''
+        for i in range(-1, -len(listForm) - 1, -1):
+            res += str(listForm[i])
+
+        return res
+
+
+num1 = "1"
+num2 = "9"
 solution = Solution()
 print(solution.addStrings(num1=num1, num2=num2))
