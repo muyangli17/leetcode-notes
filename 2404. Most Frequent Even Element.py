@@ -18,5 +18,5 @@ class Solution:
                 maxNum = num
                 maxCount = record[num]
             if record[num] == maxCount and num < maxNum:
-                num = maxNum
+                maxNum = num
         return maxNum
